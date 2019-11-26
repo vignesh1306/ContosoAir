@@ -3,8 +3,9 @@ pool:
 trigger:
   - master
 steps:
-  - script: call npm ci
-    displayName: npm install
+  - task: Npm@1
+    inputs:
+      command: 'install'
   - script: 'npm test'
     displayName: 'Run unit tests'
     continueOnError: true
